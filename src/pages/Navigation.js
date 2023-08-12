@@ -8,6 +8,8 @@ import {BiCurrentLocation, BiReset, BiArrowBack} from 'react-icons/bi'
 import {GrLocationPin} from "react-icons/gr"
 import {MdOutlineDirectionsWalk} from "react-icons/md"
 import { useNavigate } from "react-router-dom";
+import Dropdown1 from './Dropdown1';
+import Dropdown2 from './Dropdown2';
 
 let vertices = 13
 let edges = 15
@@ -56,6 +58,7 @@ export default function Navigation(){
     }
 
     function selectNodes(event){
+        
 
         const title = places[event.target.id][event.target.id][0]
         const content = places[event.target.id][event.target.id][1]
@@ -109,7 +112,6 @@ export default function Navigation(){
     return (
         <div className="navigation-container">
 
-
                 <div className="details">
                     <img src={placeDetails.image} alt="" />
                     <h1>{placeDetails.title}</h1>
@@ -121,18 +123,24 @@ export default function Navigation(){
                 <BiArrowBack className="back-icon" size = {19} />
                 <button className = 'clearPath back' onClick = {() => navigate('/home')}>Back</button>
 
-                <div>
-                    <div className="from">
-                        <BiCurrentLocation className="label"/>
-                        <input className = "location-inputs" id="sourcePlace" type="text" disabled value={source !== null? places[source][source][0] : 'Double Click To Select Source'} />
-                    </div>
-                    <div className="to">
-                        <GrLocationPin className="label"/>
-                        <input className = "location-inputs" id="destinationPlace" type="text" disabled value={destination !== null? places[destination][destination][0] : 'Double Click To Select Destination'} />
-                    </div>
-                </div>
                 
-                <div className="navigation-page">
+                    
+                    <div className="from" >
+                        
+                    <Dropdown1></Dropdown1>
+                    
+                        <BiCurrentLocation className="label"/>
+                        <input className = "location-inputs" id="sourcePlace" type="text" disabled value={source !== null? places[source][source][0] :'' } style={{margin:"10px",marginBottom:"10px"}}/>
+                    </div>
+                     <div className="to" style={{marginTop:"50px"}}>
+                     <Dropdown2></Dropdown2>
+                        <GrLocationPin className="label"/>
+                        <input className = "location-inputs" id="destinationPlace" type="text" disabled value={destination !== null? places[destination][destination][0] : ''} style={{margin:"10px"}}/>
+                    </div> 
+                
+                
+                <div className="navigation-page" style={{marginTop:"100px"}}>
+                    
                     <TransformWrapper  doubleClick={{ step: 0 }} maxScale={5} initialScale={1} initialPositionX={0} initialPositionY={0}>
                         <TransformComponent>
                         <svg width="1148" height="736" viewBox="0 0 1348 736" fill="none" xmlns="http://www.w3.org/2000/svg">

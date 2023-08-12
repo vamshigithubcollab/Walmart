@@ -1,6 +1,5 @@
 import React from "react";
 import HomePage from "./pages/HomePage";
-import WelcomePage from "./pages/WelcomePage";
 import { ToastContainer } from 'react-toastify';
 import { Route, Routes } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,7 +8,6 @@ function  App(){
   return(
     <div>
       <Routes>
-        <Route path = "/" element = {<WelcomePage/>}/>
         <Route path = "/home" element = {<HomePage/>}/>
         <Route path = "/navigation" element = {<Navigation/>}/>
       </Routes>
