@@ -1,7 +1,7 @@
 import React from "react"
 import { TbLocation } from "react-icons/tb"
 import { FiLogOut } from "react-icons/fi"
-
+import mainimg from '../inputs/images/walmart-store.jpg';
 import {toast} from "react-toastify"
 import {useNavigate} from "react-router-dom"
 import data from "../inputs/history"
@@ -37,7 +37,7 @@ export default function HomePage() {
         <div className="home-page">
             <div className="heading-section">
                 <div>
-                    <h1 className = "home-heading">THE METROPOLITAN MUSEUM OF ART</h1>
+                    <h1 className = "home-heading">AN APPLICATION TO NAVIGATE THROUGH WALMART STORE</h1>
                     <p className="home-caption">KNOW ABOUT US</p>   
                 </div>
                 <div className="home-nav">
@@ -55,10 +55,10 @@ export default function HomePage() {
                     <div>
                         <div className="page-navs">
                             <span>{data[0].heading}</span>
-                            <div>
+                            {/* <div>
                                 <button name = "prev" onClick = {handlePageNav} className="page-nav">{'>'}</button>
                                 <button name = "next" onClick = {handlePageNav} className="page-nav">{'<'}</button>
-                            </div>
+                            </div> */}
                         </div>
                         <p>
                             {data[0].content}

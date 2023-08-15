@@ -3,13 +3,11 @@ import {toast} from "react-toastify"
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import {shortestPath} from "./shortestPath";
 import { places } from "../inputs/places";
-import museumMain from '../inputs/images/innerImages/museum_main.jpg'
+import museumMain from '../inputs/images/walmart-store.jpg'
 import {BiCurrentLocation, BiReset, BiArrowBack} from 'react-icons/bi'
 import {GrLocationPin} from "react-icons/gr"
 import {MdOutlineDirectionsWalk} from "react-icons/md"
 import { useNavigate } from "react-router-dom";
-import Dropdown1 from './Dropdown1';
-import Dropdown2 from './Dropdown2';
 
 let vertices = 13
 let edges = 15
@@ -35,14 +33,14 @@ export default function Navigation(){
     const navigate = useNavigate()
 
 
-    const [placeDetails,setPlaceDetails] = useState({title: 'The MET Museum', content:'The Metropolitan Museum of Art, commonly known as The Met, is one of the largest and most comprehensive art museums in the world. Located in New York City, The Met\'s collection spans over 5,000 years of art from around the globe, with more than two million works of art in its permanent collection.The museum was founded in 1870 by a group of American citizens who wanted to create a national institution that would rival the great European museums. Today, The Met\'s collection includes masterpieces of painting, sculpture, and decorative arts from Europe, Asia, Africa, and the Americas, as well as extensive holdings of ancient Egyptian, Greek, and Roman art.    In addition to its impressive collection, The Met is renowned for its stunning architecture, which includes a mix of modern and classical styles. The museum also hosts a range of exhibitions and programs throughout the year, featuring some of the world\'s most renowned artists and thinkers. Whether you are an art lover, a history buff, or simply looking for a unique cultural experience, The Met is a must-see destination that offers something for everyone.',image:museumMain})
+    const [placeDetails,setPlaceDetails] = useState({title: 'The Walmart Store', content:'Walmart is an American multinational retail corporation that operates a chain of hypermarkets (also called supercenters), discount department stores, and grocery stores in the United States, headquartered in Bentonville, Arkansas.The company was founded by brothers Sam and James "Bud" Walton in nearby Rogers, Arkansas in 1962 and incorporated under Delaware General Corporation Law on October 31, 1969. It also owns and operate Sams Club warehouses.As of October 31, 2022, Walmart has 10,586 stores and clubs in 24 countries, operating under 46 different names.The company operates under the name Walmart in the United States and Canada, as Walmart de México y Centroamérica in Mexico and Central America, and as Flipkart Wholesale in India. It has wholly owned operations in Chile, Canada, and South Africa. Since August 2018, Walmart held only a minority stake in Walmart Brasil, which was renamed Grupo Big in August 2019, with 20 percent of the companys shares, and private equity firm Advent International holding 80% ownership of the company. They eventually divested their shareholdings in Grupo Big to French retailer Carrefour, in transaction worth R$7 billion and completed on June 7, 2022.',image:museumMain})
     const [source,setSource] = useState(null)
     const [destination,setDestination] = useState(null)
 
     function clearSourceAndDestination(){
         setSource(null)
         setDestination(null)
-        setPlaceDetails({title: 'The MET Museum', content:'The Metropolitan Museum of Art, commonly known as The Met, is one of the largest and most comprehensive art museums in the world. Located in New York City, The Met\'s collection spans over 5,000 years of art from around the globe, with more than two million works of art in its permanent collection.The museum was founded in 1870 by a group of American citizens who wanted to create a national institution that would rival the great European museums. Today, The Met\'s collection includes masterpieces of painting, sculpture, and decorative arts from Europe, Asia, Africa, and the Americas, as well as extensive holdings of ancient Egyptian, Greek, and Roman art.    In addition to its impressive collection, The Met is renowned for its stunning architecture, which includes a mix of modern and classical styles. The museum also hosts a range of exhibitions and programs throughout the year, featuring some of the world\'s most renowned artists and thinkers. Whether you are an art lover, a history buff, or simply looking for a unique cultural experience, The Met is a must-see destination that offers something for everyone.',image:museumMain})
+        setPlaceDetails({title: 'The Walmart Store', content:'As of October 31, 2022, Walmart has 10,586 stores and clubs in 24 countries, operating under 46 different names.The company operates under the name Walmart in the United States and Canada, as Walmart de Mexico y Centroamérica in Mexico and Central America, and as Flipkart Wholesale in India. It has wholly owned operations in Chile, Canada, and South Africa. Since August 2018, Walmart held only a minority stake in Walmart Brasil, which was renamed Grupo Big in August 2019, with 20 percent of the companys shares, and private equity firm Advent International holding 80% ownership of the company. They eventually divested their shareholdings in Grupo Big to French retailer Carrefour, in transaction worth R$7 billion and completed on June 7, 2022.',image:museumMain})
         
         let tar_ids = ['1-2','12-3','0-1','0-6','6-10','12-4','2-3','6-11','8-9','10-9','4-11','11-5','0-7','7-8','2-12','0-6']
         
@@ -126,16 +124,12 @@ export default function Navigation(){
                 
                     
                     <div className="from" >
-                        
-                    <Dropdown1></Dropdown1>
-                    
                         <BiCurrentLocation className="label"/>
-                        <input className = "location-inputs" id="sourcePlace" type="text" disabled value={source !== null? places[source][source][0] :'' } style={{margin:"10px",marginBottom:"10px"}}/>
+                        <input className = "location-inputs" id="sourcePlace" type="text" disabled value={source !== null? places[source][source][0] :'Select your current location' } style={{margin:"10px",marginBottom:"10px"}}/>
                     </div>
                      <div className="to" style={{marginTop:"50px"}}>
-                     <Dropdown2></Dropdown2>
                         <GrLocationPin className="label"/>
-                        <input className = "location-inputs" id="destinationPlace" type="text" disabled value={destination !== null? places[destination][destination][0] : ''} style={{margin:"10px"}}/>
+                        <input className = "location-inputs" id="destinationPlace" type="text" disabled value={destination !== null? places[destination][destination][0] : 'select your destination place'} style={{margin:"10px"}}/>
                     </div> 
                 
                 
